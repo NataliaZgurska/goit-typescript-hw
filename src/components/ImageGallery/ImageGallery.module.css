@@ -1,0 +1,15 @@
+.galleryList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.galleryItem {
+  width: 250px;
+  height: 150px;
+}
