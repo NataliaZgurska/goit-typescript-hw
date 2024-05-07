@@ -26,7 +26,7 @@ const SearchBar = ({ onSetSearchQuery, toast }) => {
           className={css.formInput}
           name="search"
           type="text"
-          autoComplete="off"
+          // autoComplete="off"
           autoFocus
           placeholder="Search images and photos"
         />
