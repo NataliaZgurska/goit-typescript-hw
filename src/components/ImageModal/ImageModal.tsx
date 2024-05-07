@@ -14,7 +14,7 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-interface ImageModalProps {}
+// interface ImageModalProps {}
 
 const ImageModal = ({ closeModal, modalIsOpen, modalImage }) => {
   return (
