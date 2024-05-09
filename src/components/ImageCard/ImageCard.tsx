@@ -1,6 +1,11 @@
+import React, { FC } from 'react';
+import { IImage } from '../App/App.types';
 import css from './ImageCard.module.css';
 
-const ImageCard = ({ image, openModal }) => {
+type ImageCardProps = { image: IImage; openModal: (id: string) => void };
+
+const ImageCard: FC<ImageCardProps> = ({ image, openModal }) => {
+  console.log('image', image);
   return (
     <div className={css.imgContainer}>
       <img

@@ -1,8 +1,13 @@
-import css from './ImageGallery.module.css';
+import React, { FC } from 'react';
 import ImageCard from '../ImageCard/ImageCard';
+import { IImage } from '../App/App.types';
+import css from './ImageGallery.module.css';
 
-const ImageGallery = ({ images, openModal }) => {
-  console.log(images);
+type ImageGalleryProps = {
+  images: IImage[] | null;
+  openModal: (id: string) => void;
+};
+const ImageGallery: FC<ImageGalleryProps> = ({ images, openModal }) => {
   return (
     <ul className={css.galleryList}>
       {Array.isArray(images) &&

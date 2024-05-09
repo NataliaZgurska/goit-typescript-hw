@@ -1,5 +1,7 @@
 import Modal from 'react-modal';
 import css from './ImageModal.module.css';
+import { IImage } from '../App/App.types';
+import React from 'react';
 
 const customStyles = {
   content: {
@@ -14,9 +16,17 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-// interface ImageModalProps {}
+type ImageModalProps = {
+  closeModal: () => void;
+  modalIsOpen: boolean;
+  modalImage: IImage[] | null;
+};
 
-const ImageModal = ({ closeModal, modalIsOpen, modalImage }) => {
+const ImageModal: React.FC<ImageModalProps> = ({
+  closeModal,
+  modalIsOpen,
+  modalImage,
+}) => {
   return (
     <div>
       <Modal
