@@ -12,6 +12,6 @@ export const getImagesByQuery = async <T>(
   const { data } = await axios.get('search/photos', {
     params: { query, page, per_page },
   });
-  console.log('api', data);
+
   return data;
 };

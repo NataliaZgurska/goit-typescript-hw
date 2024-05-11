@@ -5,12 +5,13 @@ import css from './ImageGallery.module.css';
 
 type ImageGalleryProps = {
   images: IImage[] | null;
-  openModal: (id: string) => void;
+  openModal: (item: IImage | null) => void;
 };
 const ImageGallery: FC<ImageGalleryProps> = ({ images, openModal }) => {
   return (
     <ul className={css.galleryList}>
       {Array.isArray(images) &&
+        images.length > 0 &&
         images.map(item => {
           return (
             <li className={css.galleryItem} key={item.id}>
@@ -22,5 +23,3 @@ const ImageGallery: FC<ImageGalleryProps> = ({ images, openModal }) => {
   );
 };
 export default ImageGallery;
-
-// return <p>'Nothing was found. Try to change your request 🤷‍♀️'</p>;

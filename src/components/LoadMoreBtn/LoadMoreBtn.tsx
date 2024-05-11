@@ -1,7 +1,10 @@
 import React, { FC } from 'react';
-import { MouseEventHandler } from 'react';
 import css from './LoadMoreBtn.module.css';
-type LoadMoreBtnProps = { loadMore: MouseEventHandler<HTMLButtonElement> };
+
+type LoadMoreBtnProps = {
+  loadMore: (event: React.MouseEvent<HTMLButtonElement>) => void;
+};
+
 const LoadMoreBtn: FC<LoadMoreBtnProps> = ({ loadMore }) => {
   return (
     <div className={css.btnContainer}>
@@ -13,10 +16,3 @@ const LoadMoreBtn: FC<LoadMoreBtnProps> = ({ loadMore }) => {
 };
 
 export default LoadMoreBtn;
-//  {
-//    images.length > 0 && (
-//      <button onClick={loadMore} type="button">
-//        Load more
-//      </button>
-//    );
-//  }

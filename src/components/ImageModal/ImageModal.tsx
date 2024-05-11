@@ -1,7 +1,7 @@
+import React, { FC } from 'react';
 import Modal from 'react-modal';
-import css from './ImageModal.module.css';
 import { IImage } from '../App/App.types';
-import React from 'react';
+import css from './ImageModal.module.css';
 
 const customStyles = {
   content: {
@@ -19,39 +19,35 @@ Modal.setAppElement('#root');
 type ImageModalProps = {
   closeModal: () => void;
   modalIsOpen: boolean;
-  modalImage: IImage[] | null;
+  modalImg: IImage | null;
 };
 
-const ImageModal: React.FC<ImageModalProps> = ({
-  closeModal,
-  modalIsOpen,
-  modalImage,
-}) => {
-  return (
-    <div>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        {modalImage && (
-          <div>
-            <div className={css.imgContainer}>
-              <img
-                className={css.modalImg}
-                src={modalImage[0].urls.regular}
-                alt={modalImage[0].alt_description}
-              />
+const ImageModal: FC<ImageModalProps> = React.memo(
+  ({ closeModal, modalIsOpen, modalImg }) => {
+    return (
+      <div>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          {modalImg && (
+            <div>
+              <div className={css.imgContainer}>
+                <img
+                  className={css.modalImg}
+                  src={modalImg.urls.regular}
+                  alt={modalImg.alt_description}
+                />
+              </div>
+              <p className={css.modalDescription}>{modalImg.alt_description}</p>
             </div>
-            <p className={css.modalDescription}>
-              {modalImage[0].alt_description}
-            </p>
-          </div>
-        )}
-      </Modal>
-    </div>
-  );
-};
+          )}
+        </Modal>
+      </div>
+    );
+  }
+);
 
 export default ImageModal;

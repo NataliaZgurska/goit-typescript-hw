@@ -43,8 +43,6 @@ const SearchBar: FC<SearchBarProps> = ({ onSetSearchQuery }) => {
           type="text"
           value={value}
           onChange={handleChange}
-          // autoComplete="off"
-          autoFocus
           placeholder="Search images and photos"
         />
         <button type="submit" aria-label="Search" className={css.formBtn}>
